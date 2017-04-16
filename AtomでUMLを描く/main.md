@@ -57,6 +57,8 @@ Atomは [https://atom.io/](https://atom.io/) からダウンロードできま�
 
 packagesはAtomのメニューの `Atom > Preferences... ⌘,` からの `Settings > Install` でpackage毎に検索してインストールします。
 
+plantuml-viewerのSettingsの `Graphviz Dot Executable` に `dot` のパス( `/opt/local/bin/dot` )を設定します。インストールしたpackageのSettingsはAtomのメニュー `Atom > Preferences... ⌘,` からの `Settings > Packages` の各packageのSettingsボタンで遷移できます。
+
 ## Demo
 
 例として "AtomでUML図を描く環境" を描いてみました。plantumlの書き方は模索中です。(肝心のUML図に自信がないです...)
