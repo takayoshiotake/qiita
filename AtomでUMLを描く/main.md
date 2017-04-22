@@ -42,7 +42,7 @@ MacPortsは [https://www.macports.org/](https://www.macports.org/) からダウ�
 
 Graphvizは次のコマンドでインストールします。これで `dot` コマンドが使えるようになります。
 
-```
+```shell-session
 $ sudo port install graphviz
 ...
 $ which dot
