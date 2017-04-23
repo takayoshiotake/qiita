@@ -27,6 +27,7 @@ def test_with_iobase():
     with open(DRIVER_FILE, mode='wb', buffering=0) as file:
         start = datetime.datetime.now()
         for i in range(TEST_COUNT):
+            file.seek(0)
             file.write(COMMAND)
             file.flush()
         elapsed_time = (datetime.datetime.now() - start).microseconds
