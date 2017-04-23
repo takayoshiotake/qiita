@@ -19,7 +19,7 @@ def test_with_fileio():
             file.flush()
         elapsed_time = (time.time() - start) * 1000000
         file.close()
-    print(f'io.FileIO: {elapsed_time / TEST_COUNT}us')
+    print(f'io.FileIO: {elapsed_time / TEST_COUNT:.4f}us')
 
 
 def test_with_iobase():
@@ -32,7 +32,7 @@ def test_with_iobase():
             file.flush()
         elapsed_time = (time.time() - start) * 1000000
         file.close()
-    print(f'io.IOBase: {elapsed_time / TEST_COUNT}us')
+    print(f'io.IOBase: {elapsed_time / TEST_COUNT:.4f}us')
 
 
 def test_with_os():
@@ -44,7 +44,7 @@ def test_with_os():
         os.write(fd, COMMAND)
     os.close(fd)
     elapsed_time = (time.time() - start) * 1000000
-    print(f'os: {elapsed_time / TEST_COUNT}us')
+    print(f'os: {elapsed_time / TEST_COUNT:.4f}us')
 
 
 if __name__ == '__main__':

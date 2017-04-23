@@ -25,7 +25,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char* argv[])
             }
             elapsed_time = clock() - start_clock;
         } while(0);
-        printf("%lfus\n", (double) elapsed_time / TEST_COUNT * (1000000.0 / CLOCKS_PER_SEC));
+        printf("%.4lfus\n", (double) elapsed_time / TEST_COUNT * (1000000.0 / CLOCKS_PER_SEC));
     } while(0);
     close(fd);
     return EXIT_SUCCESS;
