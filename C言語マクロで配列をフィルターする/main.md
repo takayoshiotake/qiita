@@ -8,7 +8,7 @@
 ## 実装
 
 テストコードはGitHubにあります。
-https://github.com/takayoshiotake/qiita/tree/master/C言語マクロで配列をフィルターする/src
+https://github.com/takayoshiotake/qiita/tree/master/C%E8%A8%80%E8%AA%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%81%A7%E9%85%8D%E5%88%97%E3%82%92%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E3%81%99%E3%82%8B/src
 
 ### first
 
