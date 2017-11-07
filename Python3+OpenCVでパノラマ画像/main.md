@@ -1,7 +1,7 @@
 # Python3+OpenCVでパノラマ写真
 
 コードはGitHubにあります。
-https://github.com/takayoshiotake/qiita/tree/master/Python3+OpenCV%E3%81%A7%E3%83%91%E3%83%8E%E3%83%A9%E3%83%9E%E5%86%99%E7%9C%9F/src
+https://github.com/takayoshiotake/qiita/tree/master/Python3%2BOpenCV%E3%81%A7%E3%83%91%E3%83%8E%E3%83%A9%E3%83%9E%E7%94%BB%E5%83%8F/src
 
 
 ## 画像用意
