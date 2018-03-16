@@ -1,0 +1,14 @@
+[Unit]
+Description=Shutdown Button
+After=local-fs.target
+ConditionPathExists=/home/pi
+
+[Service]
+ExecStart=/home/pi/shutdown-button.sh
+Restart=no
+Type=simple
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
