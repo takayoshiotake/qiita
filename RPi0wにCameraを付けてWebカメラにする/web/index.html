@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><!-- ✅ あ keeps utf-8 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<style>
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+img {
+    display: block;
+}
+.flex-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.flex-item {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+</style>
+<script>
+class IndexPage {
+    constructor() {
+        this.img = document.querySelector('.flex-item')
+        this.start_liveview()
+    }
+    
+    start_liveview() {
+        var is_updating = false
+        let update_liveview = async () => {
+            if (is_updating) {
+                return
+            }
+            is_updating = true
+            
+            let webapi = new WebAPIRequest()
+            try {
+                await webapi.request('GET', '/api/camera.liveview.jpg')
+                if (webapi.status == 200) {
+                    this.img.src = await webapi.response_as('image/jpeg')
+                }
+                else {
+                    console.log(await webapi.response_as('json'))
+                }
+            }
+            catch (e) {
+            }
+            
+            is_updating = false
+        }
+        setInterval(update_liveview, 100)
+        update_liveview()
+    }
+}
+
+let indexPage
+window.addEventListener('load', () => {
+    indexPage = new IndexPage()
+})
+
+class WebAPIRequest {
+    constructor() {
+        this.xhr = new XMLHttpRequest()
+        this.xhr.responseType = 'arraybuffer'
+    }
+    
+    get status() {
+        return this.xhr.status
+    }
+    
+    async request(method, uri, timeout = 3000) {
+        return new Promise((resolve, reject) => {
+            this.xhr.ontimeout = (e) => { reject(e) }
+            this.xhr.onerror = (e) => { reject(e) }
+            this.xhr.onload = (e) => {
+                if (this.xhr.readyState == 4) {
+                    resolve()
+                }
+            }
+                
+            this.xhr.open(method, uri)
+            this.xhr.setRequestHeader('Pragma', 'no-cache')
+            this.xhr.setRequestHeader('Cache-Control', 'no-cache')
+            this.xhr.send()
+        })
+    }
+    
+    async response_as(type) {
+        switch (type) {
+        case 'image/jpeg':
+            return new Promise((resolve) => {
+                let reader = new FileReader()
+                reader.onloadend = () => {
+                    resolve(reader.result)
+                }
+                reader.readAsDataURL(new Blob([this.xhr.response], {type: 'image/jpeg'}))
+            })
+        case 'json':
+            return JSON.parse(new TextDecoder('utf-8').decode(this.xhr.response))
+        default:
+            return this.xhr.response
+        }
+    }
+}
+</script>
+</head>
+<body>
+<div class="flex-box">
+  <img class="flex-item">
+</div>
+</body>
+</html>
