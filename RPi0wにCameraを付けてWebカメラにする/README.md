@@ -151,7 +151,7 @@ if __name__ == '__main__':
 
 *./web/index.html*:
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
