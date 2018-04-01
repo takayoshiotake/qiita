@@ -344,7 +344,7 @@ $MJPEG_STREAMER_PATH/mjpg_streamer -o "output_http.so -p 8081" -i "input_raspica
 
 *server-v2.py*:
 
-```
+```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
